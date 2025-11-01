@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function loadNextImage() {
     const img = new Image();
-    const exts = ['jpg', 'png', 'webp'];
+    const exts = ['jpg', 'png', 'webp', 'jpeg'];
     let extIndex = 0;
 
     function tryLoadExt() {
