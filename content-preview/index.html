@@ -1,0 +1,144 @@
+<!-- 웹툰 정보 페이지 -->
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8" />
+  <title id="page-title"> - </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" type="images/png" href="../title-logo.png">
+  <script src="ChapterLoad.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="background">
+        <div class="content">
+            <div class="header">
+                <div class="header-content">
+                <div class="header-content-container">
+                 <!-- 로고 범위 지정 -->
+                    <div class="logo-container">
+                    <img class="logo" src="logo.png" onclick="window.location.href = '../index.html'">
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="webtoon-info">
+                    <div class="preview-container">
+                        <div class="webtoon-info-container">
+                            <!-- 웹툰 정보 불러오기 -->
+                            <img class="webtoon-preview-cover" src="" alt="웹툰 이미지">
+                            <div class="webtoon-info-except-CoverImg">
+                                <span class="webtoon-title"></span><br>
+                                <span class="webtoon-writer-info"></span><br><br><br>
+                                <button class="full-episodes" title="서비스 예정입니다">전체 회차 보기</button>
+                                <!-- 태그 -->
+                                <div class="tag"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="webtoon-chapter-content">
+                    <div class="webtoon-chapter-content-wrapper">
+                        <!-- 회차 자동 생성 -->
+                        <div class="webtoon-chapter-content-align"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer"></div>
+            <!-- 웹툰 정보 불러오기 -->
+            <!-- <script src="WebtoonInfo.js" type="text/javascript"></script> -->
+            <!-- 웹툰 정보 viewer로 넘기기 -->
+            <script type="text/javascript">
+            window.addEventListener('DOMContentLoaded', () => {
+            const titleSpan = document.querySelector('.webtoon-title');
+            if (titleSpan) {
+                const fullText = titleSpan.textContent.trim();
+                titleSpan.setAttribute('title', fullText);
+            }
+            });
+            </script>
+            <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const name = params.get('name');
+            const writer = params.get('writer');
+            const cover = params.get('cover');
+            const tags = params.get('tags');
+            const totalChapters = parseInt(params.get('chapters')) || 0;
+            const type = params.get('type') || 'webtoon'; // 기본값 fallback
+
+            // 제목, 작가, 커버 설정
+            document.title = `${name} - 미리보기`;
+            document.querySelector('.webtoon-title').textContent = name;
+            document.querySelector('.webtoon-writer-info').textContent = writer;
+
+            // 태그 생성
+            if (tags) {
+                const tagContainer = document.querySelector('.tag');
+                const tagList = tags.split(',').map(t => t.trim());
+                tagList.forEach(tag => {
+                const span = document.createElement('span');
+                span.textContent = `#${tag}`;
+                span.style.marginRight = '8px';
+                span.style.padding = '4px 8px';
+                span.style.background = '#eee';
+                span.style.borderRadius = '8px';
+                span.style.fontSize = '0.9em';
+                span.style.display = 'inline-block';
+                tagContainer.appendChild(span);
+                });
+            }
+
+            const coverImg = document.querySelector('.webtoon-preview-cover');
+            if (coverImg) {
+                coverImg.src = cover.startsWith('http') || cover.startsWith('/') ? cover : `../${cover}`;
+            }
+
+            const chapterContainer = document.querySelector('.webtoon-chapter-content-align');
+            chapterContainer.innerHTML = ''; // 초기화
+
+            for (let i = 1; i <= totalChapters; i++) {
+                const chapterDiv = document.createElement('div');
+                chapterDiv.className = 'webtoon-chapter';
+
+                const numberDiv = document.createElement('div');
+                numberDiv.className = 'webtoon-chapter-number';
+                numberDiv.textContent = `${i}화`;
+
+                const previewDiv = document.createElement('div');
+                previewDiv.className = 'webtoon-preview-site-select';
+                previewDiv.style.cursor = 'pointer';
+
+                previewDiv.addEventListener('click', () => {
+                const query = new URLSearchParams({
+                    chapter: i
+                });
+
+                if (type === 'novel') {
+                    // 소설일 경우 novel-viewer로 이동
+                    query.set('id', id);
+                    query.set('title', name);
+                    query.set('total', totalChapters);
+                    window.location.href = `../novel-viewer/index.html?${query.toString()}`;
+                } else {
+                    // 웹툰일 경우 viewer로 이동
+                    query.set('webtoon', id);
+                    query.set('title', name);
+                    query.set('total', totalChapters);
+                    window.location.href = `../viewer/index.html?${query.toString()}`;
+                }
+                });
+
+                previewDiv.appendChild(document.createElement('div')); // 내부 hover 효과용 div
+                chapterDiv.appendChild(numberDiv);
+                chapterDiv.appendChild(previewDiv);
+                chapterContainer.appendChild(chapterDiv);
+            }
+            });
+            </script>
+        </div>
+    </div>
+</body>
+</html>

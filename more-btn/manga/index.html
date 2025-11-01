@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko-KR" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일본만화</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="icon" type="images/png" href="../../title-logo.png">
+</head>
+<body>
+  <!-- width 1200px 이상일 경우 여백으로 표현 (.background) -->
+  <div class="background">
+    <div class="content">
+      <div class="header">
+        <div class="header-content">
+          <div class="header-content-container">
+            <!-- 로고 범위 지정 -->
+            <div class="logo-container">
+              <img class="logo" src="logo.png" onclick="window.location.href = '../../index.html'">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="title-wrapper">
+            <div class="title">
+                <span>일본 만화</span>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="manga-gnb-bar">
+                <div class="manga-gnb-menu">
+                    <ul>
+                        <li><a onclick="ShowFullLengthManga()">장편만화</a></li>
+                        <li><a onclick="ShowShortLengthManga()">단편만화</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="webtoon-content-wrapper" data-content-type="FullLengthManga">
+                <div class="webtoon-content" data-general-webtoon-id="cjswoaksudmlakfurrhrkf">
+                  <div class="webtoon-info">
+                    <img src="../../manga-cover/천재마녀의_마력고갈.jpeg" class="webtoon-cover">
+                    <div class="except-cover-img">
+                      <span class="webtoon-title">천재마녀의 마력고갈</span>
+                      <span class="webtoon-writer">츠지시마 모토</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="webtoon-content" data-general-webtoon-id="shdktjsqosmsclsrn">
+                  <div class="webtoon-info">
+                    <img src="../../manga-cover/노아_선배는_친구.jpeg" class="webtoon-cover">
+                    <div class="except-cover-img">
+                      <span class="webtoon-title">노아 선배는 친구</span>
+                      <span class="webtoon-writer">아키야마 엔마</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="webtoon-content" data-general-webtoon-id="akdmadmlthflrkwkftodjskdhsmsapdlemTl">
+                  <div class="webtoon-info">
+                    <img src="../../manga-cover/마음의_소리가_잘_새어나오는_메이드씨.jpeg" class="webtoon-cover">
+                    <div class="except-cover-img">
+                      <span class="webtoon-title">마음의 소리가 잘 새어나오는 메이드씨</span>
+                      <span class="webtoon-writer">긴모쿠</span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- span > .webtoon-title 두 줄 이상시 eclipse 처리 -->
+  <script type="text/javascript">
+  document.querySelectorAll('.webtoon-title').forEach(span => {
+    const lineHeight = 1; // em 기준
+    const maxLines = 2;
+
+    const computedStyle = getComputedStyle(span);
+    const lineHeightPx = parseFloat(computedStyle.lineHeight);
+    const clientHeight = span.scrollHeight;
+
+    const numLines = Math.round(clientHeight / lineHeightPx);
+  
+    if (numLines > maxLines) {
+      span.style.maxHeight = `${lineHeightPx * maxLines}px`;
+      span.style.display = '-webkit-box';
+      span.style.webkitLineClamp = maxLines;
+    }
+  });
+  </script>
+</body>
+</html>

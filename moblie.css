@@ -1,0 +1,38 @@
+/* 햄버거 버튼 설정 */
+.hamburger {
+  display: none;
+  font-size: 35px;
+  cursor: pointer;
+  top: 50%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100vh;
+  background-color: white;
+  z-index: 1000;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.mobile-sidebar.show {
+  left: 0;
+}
+
+@media (max-width: 1000px) {
+  .sidebar {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    margin-left: 10px;
+  }
+}

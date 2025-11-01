@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko-KR" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성인웹툰</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="icon" type="images/png" href="../../title-logo.png">
+</head>
+<body>
+  <!-- width 1200px 이상일 경우 여백으로 표현 (.background) -->
+  <div class="background">
+    <div class="content">
+      <div class="header">
+        <div class="header-content">
+          <div class="header-content-container">
+            <!-- 로고 범위 지정 -->
+            <div class="logo-container">
+              <img class="logo" src="logo.png" onclick="window.location.href = '../../index.html'">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="title-wrapper">
+            <div class="title">
+                <span>성인 웹툰</span>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="webtoon-content-wrapper">
+                <div class="webtoon-content" data-general-webtoon-id="wjswlwjrehrwktlwja">
+                  <div class="webtoon-info">
+                    <img src="../../webtoon-cover/전지적_독자_시점.jpg" class="webtoon-cover">
+                    <div class="except-cover-img">
+                      <span class="webtoon-title">전지적 독자 시점</span>
+                      <span class="webtoon-writer">UMI / 슬리퍼-C</span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- span > .webtoon-title 두 줄 이상시 eclipse 처리 -->
+  <script type="text/javascript">
+  document.querySelectorAll('.webtoon-title').forEach(span => {
+    const lineHeight = 1; // em 기준
+    const maxLines = 2;
+
+    const computedStyle = getComputedStyle(span);
+    const lineHeightPx = parseFloat(computedStyle.lineHeight);
+    const clientHeight = span.scrollHeight;
+
+    const numLines = Math.round(clientHeight / lineHeightPx);
+  
+    if (numLines > maxLines) {
+      span.style.maxHeight = `${lineHeightPx * maxLines}px`;
+      span.style.display = '-webkit-box';
+      span.style.webkitLineClamp = maxLines;
+    }
+  });
+  </script>
+</body>
+</html>

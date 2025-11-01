@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>유재이닷컴 - 익명 커뮤니티</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen font-sans">
+  <div class="max-w-2xl mx-auto p-4">
+    <!-- 헤더 -->
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold text-center">🧑‍🤝‍🧑 유재이닷컴 - 익명 커뮤니티</h1>
+    </header>
+
+    <!-- 글쓰기 폼 -->
+    <section class="mb-6 bg-white p-4 rounded-2xl shadow">
+      <input
+        type="text"
+        placeholder="닉네임 (미입력 시 익명)"
+        class="w-full mb-2 p-2 border rounded"
+      />
+      <textarea
+        placeholder="내용을 입력하세요"
+        class="w-full h-28 p-2 border rounded resize-none"
+      ></textarea>
+      <div class="flex justify-end mt-2">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+          글 작성
+        </button>
+      </div>
+    </section>
+
+    <!-- 게시글 박스 예시 -->
+    <section class="space-y-4">
+      <div class="bg-white p-4 rounded-2xl shadow">
+        <div class="text-sm text-gray-600 mb-2">
+          <strong>익명</strong> · 2025-08-02 15:22
+        </div>
+        <div class="mb-3 text-gray-800">
+          오늘 진짜 날씨 너무 덥다...🥵 다들 어떻게 지내?
+        </div>
+        <div class="flex gap-4 text-sm text-gray-600">
+          <button class="hover:text-blue-500">👍 추천</button>
+          <button class="hover:text-red-500">👎 비추천</button>
+          <button class="hover:text-gray-900">💬 댓글</button>
+          <button class="ml-auto text-xs hover:text-yellow-600">✏️ 수정</button>
+          <button class="text-xs hover:text-red-600">❌ 삭제</button>
+        </div>
+      </div>
+
+      <!-- 추가 게시글도 같은 형식으로 반복 -->
+    </section>
+  </div>
+</body>
+</html>

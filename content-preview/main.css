@@ -1,0 +1,91 @@
+@media (min-width: 1000px) {
+
+/* 기본 설정 */
+html, body {margin: 0; padding: 0; width: 100%; height: 100%;}
+
+.background {background-color: gray; width: 100%; height: 100%;}
+.content {max-width: 1200px; margin: 0 auto; background-color: white; width: 100%; height: 100%;}
+
+/* 헤더 콘텐츠 */
+.header {width: 100%; height: 75px; border-bottom: 1px black solid; background-color: white; z-index: 1;}
+.header-content {width: 100%; height: 100%;}
+.header-content-container {width: 100%; height: 100%; display: grid; grid-template-columns: 1fr}
+.logo-container {width: 100%; height: 100%; position: relative; border-right: 1px black solid;}
+.logo {width: 231px; height: 65px; position: absolute; transform: translate(-50%, -50%); top: 50%; left: 50%;}
+
+/* 메인 콘텐츠 */
+
+.main {height: calc(100% - 75.8px - 247.4px);}
+.webtoon-title {font-size: 30px; font-family: "Noto Sans KR", sans-serif; font-optical-sizing: auto; font-weight: 600; font-style: normal; position: relative; bottom: 7px; right: 1px; display: inline-block; max-width: 1000px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; vertical-align: bottom; cursor: default;}
+.webtoon-info-container {display: flex;}
+.webtoon-preview-cover {width: 144px; height: 205px; border: 1px black solid; border-radius: 10px;}
+.webtoon-writer-info {font-size: 15px; color: gray; position: relative; bottom: 9px; font-family: "Noto Sans KR", sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal;}
+.webtoon-info {padding: 20px; border-bottom: 1px gainsboro solid;}
+.webtoon-title {width: auto;}
+/* .full-episodes {border: 1px black solid; outline: none; background-color: white; width: 150px; height: 50px; border-radius: 10px; font-size: 15px; font-family: "Noto Sans KR", sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal; transition: 0.2s;}
+.full-episodes:hover {color: white; background-color: black; transition: 0.2s;} */
+.full-episodes {border: 1px black solid; outline: none; background-color: white; width: 150px; height: 50px; border-radius: 10px; font-size: 15px; font-family: "Noto Sans KR", sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal; opacity: 50%; cursor: not-allowed;}
+.tag {width: max-content; position: relative; top: 15px;}
+.webtoon-info-except-CoverImg {width: max-content; padding-left: 20px;}
+
+.webtoon-chapter {width: 100%; background-color: rgb(246, 246, 246); border-bottom: 1px black solid; height: 75px; position: relative;}
+.webtoon-chapter-content {overflow-y: auto; height: 100%; overflow-x: hidden;}
+.webtoon-chapter-content-align {height: 100%;}
+.webtoon-chapter-content-wrapper {height: 100%;}
+.webtoon-chapter-number {position: absolute; top: 33%; padding-left: 40px; z-index: 1;}
+.webtoon-preview-site-select {width: 100%; height: 100%; position: relative; overflow: hidden; cursor: pointer;}
+.webtoon-preview-site-select > div {width: 100%; height: 100%;}
+.webtoon-preview-site-select::before {content: ""; position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: linear-gradient(to right, #ccc 0%, #ccc 100%); transform: scaleX(0); transform-origin: left; transition: transform 0.5s ease; z-index: 0;}
+.webtoon-preview-site-select:hover::before {transform: scaleX(1);}
+.webtoon-preview-site-select > div {position: relative; z-index: 1;}
+}
+
+
+
+
+/* 모바일 */
+
+@media (max-width: 1000px) {
+
+/* 기본 설정 */
+html, body {margin: 0; padding: 0; width: 100%; height: 100%;}
+
+.background {width: 100%; height: 100%;}
+.content {width: 100%; height: 100%;}
+
+/* 헤더 콘텐츠 */
+.header {width: 100%; height: 60px; border-bottom: 1px black solid; background-color: white; z-index: 1;}
+.header-content {width: 100%; height: 100%;}
+.header-content-container {width: 100%; height: 100%; display: grid; grid-template-columns: 1fr}
+.logo-container {width: 100%; height: 100%; position: relative;}
+.logo {width: calc(231px * 0.7); height: calc(65px * 0.7); position: absolute; transform: translate(-50%, -50%); top: 50%; left: 50%;}
+
+/* 메인 콘텐츠 */
+
+/*태그 없애기 */
+.tag {display: none;}
+
+.main {height: calc(100% - 75.8px - 300px);}
+.webtoon-title {display: flex; display: inline-block; white-space: normal; word-wrap: break-word; overflow-wrap: break-word; font-size: 20px; font-family: "Noto Sans KR", sans-serif; font-optical-sizing: auto; font-weight: 570; font-style: normal; position: relative; bottom: 7px; right: 1px; cursor: default;}
+.webtoon-info-container {display: flex;}
+.webtoon-preview-cover {width: calc(144px * 0.8); height: calc(205px * 0.8); border: 1px black solid; border-radius: 10px;}
+.webtoon-writer-info {font-size: 10px; color: gray; position: relative; bottom: 12.5px; font-family: "Noto Sans KR", sans-serif; font-optical-sizing: auto; font-weight: 370; font-style: normal;}
+.webtoon-info {padding: 20px; border-bottom: 1px gainsboro solid; height: 170px;}
+/* .webtoon-title {width: auto;} */
+/* .full-episodes {border: 1px black solid; outline: none; background-color: white; width: 150px; height: 50px; border-radius: 10px; font-size: 15px; font-family: "Noto Sans KR", sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal; transition: 0.2s;}
+.full-episodes:hover {color: white; background-color: black; transition: 0.2s;} */
+/* .full-episodes {margin-top: auto; border: 1px black solid; outline: none; background-color: white; width: 100px; height: 33px; border-radius: 10px; font-size: 10px; font-family: "Noto Sans KR", sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal; opacity: 50%; cursor: not-allowed;} */
+.full-episodes {display: none;}
+.webtoon-info-except-CoverImg {width: max-content; padding-left: 20px; height: 100%;}
+
+.webtoon-chapter {width: 100%; background-color: rgb(246, 246, 246); border-bottom: 1px black solid; height: 60px; position: relative;}
+.webtoon-chapter-content {overflow-y: auto; height: 100%; overflow-x: hidden;}
+.webtoon-chapter-content-align {height: 100%;}
+.webtoon-chapter-content-wrapper {height: 100%;}
+.webtoon-chapter-number {position: absolute; top: 25%; padding-left: 25px; z-index: 1; font-size: 18px;}
+.webtoon-preview-site-select {width: 100%; height: 100%; position: relative; overflow: hidden; cursor: pointer;}
+.webtoon-preview-site-select > div {width: 100%; height: 100%;}
+.webtoon-preview-site-select::before {content: ""; position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: linear-gradient(to right, #ccc 0%, #ccc 100%); transform: scaleX(0); transform-origin: left; transition: transform 0.5s ease; z-index: 0;}
+.webtoon-preview-site-select:hover::before {transform: scaleX(1);}
+.webtoon-preview-site-select > div {position: relative; z-index: 1;}
+}

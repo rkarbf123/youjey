@@ -1,0 +1,23 @@
+@media (max-width: 1000px) {
+
+.header {width: 100%; height: 60px; border-bottom: 1px solid black; background-color: white; z-index: 1;}
+.header-content {width: 100%; height: 100%;}
+.header-content-container {width: 100%; height: 100%; display: grid; grid-template-columns: 1fr}
+.logo-container {width: 100%; height: 100%; position: relative;}
+.logo {width: 161.7px; height: 45.5px; position: absolute; transform: translate(-50%, -50%); top: 50%; left: 50%;}
+
+body {margin: 0; padding: 0; background: gainsboro; color: #000; font-family: sans-serif; overflow-x: hidden;}
+.viewer-container {max-width: 800px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center;}
+.viewer-title {font-size: 24px; margin-bottom: 20px;}
+.viewer-images {display: flex; flex-direction: column; line-height: 0; vertical-align: top; }
+.viewer-images img {width: 360px; display: block; margin: 0px auto; margin-bottom: -1px;}
+.btn-container {display: flex; justify-content: space-between; margin-top: 20px;}
+button {background-color: #007bff; border: none; color: white; padding: 15px 60px; font-size: 16px; border-radius: 4px; cursor: pointer; user-select: none; transition: background-color 0.3s ease;}
+button:disabled {background-color: #ccc; cursor: not-allowed;}
+.fixed-nav-buttons {position: fixed; top: 50%; left: 0; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); pointer-events: none; z-index: 1000; transition: opacity 0.5s ease;}
+.fixed-nav-buttons button {pointer-events: all; background-color: #007bff; border: none; color: white; padding: 7px 13px; font-size: 30px; border-radius: 50%; cursor: pointer; opacity: 0.5; margin: 0 10px; user-select: none; transition: opacity 0.3s ease;}
+.fixed-nav-buttons button:disabled {background-color: #ccc !important; cursor: not-allowed; opacity: 0.25;}
+.fixed-nav-buttons.hidden {opacity: 0; pointer-events: none;}
+.hidden {display: none !important;}
+
+}
