@@ -3,8 +3,8 @@
 /* 기본 설정 */
 html, body {margin: 0; padding: 0; width: 100%; height: 100%;}
 
-.background {background-color: gray; width: 100%; height: 100%;}
-.content {max-width: 1200px; margin: 0 auto; background-color: white; width: 100%; height: 100%;}
+.background {background-color: gray; width: 100%; height: 100%; overflow-y: hidden;}
+.content {max-width: 1200px; margin: 0 auto; background-color: #f8f8f8; width: 100%; height: 100%;}
 
 /* 헤더 콘텐츠 */
 .header {width: 100%; height: 75px; border-bottom: 1px black solid; background-color: white; z-index: 1;}

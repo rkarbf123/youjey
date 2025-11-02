@@ -17,6 +17,8 @@ html, body {margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;}
 .title-wrapper {padding: 25px;}
 .title > span {font-size: 35px; font-family: "Noto Sans KR", sans-serif; font-weight: 500;}
 
+.align-content {width: 100%; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;}
+
 .webtoon-content-wrapper {display: flex; flex-wrap: wrap;}
 .webtoon-content {width: calc(198px * 0.7); height: 300px; border-radius: 10px; margin-right: 20px; position: relative; z-index: 1;}
 .webtoon-cover {width: 144px; height: 184px; border-radius: 10px; transform: scale(1); filter: brightness(1); transition: 0.25s ease-out, filter 0.25s linear; border: 1px black solid; box-shadow: 3px 3px 3px 3px gray;}

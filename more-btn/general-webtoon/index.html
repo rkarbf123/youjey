@@ -30,6 +30,7 @@
         </div>
         <div class="main-content">
             <div class="webtoon-content-wrapper">
+              <div class="align-content">
                 <div class="webtoon-content" data-general-webtoon-id="wjswlwjrehrwktlwja">
                   <div class="webtoon-info">
                     <img src="../../webtoon-cover/전지적_독자_시점.jpg" class="webtoon-cover">
@@ -129,6 +130,7 @@
                     </div>
                   </div>
                 </div>
+              </div>
             </div>
         </div>
       </div>
@@ -151,6 +153,29 @@
       span.style.display = '-webkit-box';
       span.style.webkitLineClamp = maxLines;
     }
+  });
+  </script>
+  <script>
+  document.querySelectorAll(".webtoon-content").forEach(content => {
+    content.addEventListener("click", () => {
+      // 데이터 추출
+      const id = content.getAttribute("data-general-webtoon-id");
+      const title = content.querySelector(".webtoon-title")?.innerText.trim() || "";
+      const writer = content.querySelector(".webtoon-writer")?.innerText.trim() || "";
+      const coverPath = content.querySelector(".webtoon-cover")?.getAttribute("src") || "";
+
+      // URL 파라미터 생성
+      const params = new URLSearchParams({
+        id: id,
+        name: title,
+        writer: writer,
+        cover: coverPath,
+        type: "webtoon"
+      });
+
+      // 페이지 이동
+      window.location.href = `../../content-preview/index.html?${params.toString()}`;
+    });
   });
   </script>
 </body>
